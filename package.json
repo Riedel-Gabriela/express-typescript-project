@@ -1,0 +1,36 @@
+{
+  "name": "express-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "a basic api in Node JS with Typescript and Gemini",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "jest --config jest.config.ts --coverage",
+    "build": "rm -rf build/ && tsc -p tsconfig.build.json"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.17.1",
+    "@types/canvasjs": "^1.9.11",
+    "base64-arraybuffer-es6": "^3.1.0",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.6.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.5.1",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
