@@ -17,7 +17,7 @@ export function MongoGet(model: Model<any>) {
         }
       } catch (error) {
         console.error('Error getting data: ', error);
-        return res.status(500).json({ message: 'Error getting data' });
+        return res.status(400).json({ error_code: 'INVALID_TYPE', error_description: 'Tipo de medição não permitida' });
       }
       return originalMethod.call(this, req, res, next);
     };

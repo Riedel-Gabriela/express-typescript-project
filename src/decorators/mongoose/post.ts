@@ -7,18 +7,17 @@ export function MongoPost(model: Model<any>) {
     const originalMethod = descriptor.value;
 
     descriptor.value = async function (req: Request, res: Response, next: NextFunction) {
-      const body = run(req.body.image);
+      const body = await run(req.body.image);
+      const bodyJson = JSON.parse(body);
       try {
         const document = new model({
           _id: new mongoose.Types.ObjectId(),
-          ...body
+          ...bodyJson
         });
-        console.log('Document: ', document);
         await document.save();
         req.mongoPost = document;
-      } catch (error) {
-        console.error('Error getting data: ', error);
-        return res.status(500).json({ message: 'Error creating data' });
+      } catch (error: any) {
+        return res.status(400).json({ error_code: 'INVALID_DATA', error_description: error.message });
       }
       return originalMethod.call(this, req, res, next);
     };
