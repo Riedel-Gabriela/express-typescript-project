@@ -23,7 +23,7 @@ export const mongo = {
   MONGO_URL,
   MONGO_TABLE,
   MONGO_OPTIONS,
-  MONGO_CONNECTION: `mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}`
+  MONGO_CONNECTION: `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URL}`
 };
 
 export const server = {
